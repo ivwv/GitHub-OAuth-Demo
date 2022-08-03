@@ -5,14 +5,13 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 // 在github去申请
-const clientId = "YOUR_CLIENT_ID";
-const clientSecret = "YOUR_CLIENT_SECRET";
+const clientId = "d7c2ef54200bd4b6cc7d";
+const clientSecret = "bd50e2b2a14081cd2e851a4b2bec52c5ef9d017f";
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var token = null;
 app.use("/", express.static("src"));
 
 app.get("/github-login", (req, res) => {
