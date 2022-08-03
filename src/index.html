@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub OAuth登录</title>
+  <style>
+
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <h1><a href="/github-login">GitHub OAuth登录</a></h1>
+  <script>
+    const img = document.querySelector('#img')
+    const username = document.querySelector('#username')
+    // 解析url参数
+    function parse(url) {
+      return [...new URL(url).searchParams].reduce(
+        (cur, [key, value]) => ((cur[key] = value), cur),
+        {}
+      );
+    }
+    // 打印url参数
+    console.log(parse(window.location.href));
+  </script>
+</body>
+
+</html>
