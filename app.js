@@ -5,8 +5,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 // 在github去申请
-const clientId = "d7c2ef54200bd4b6cc7d";
-const clientSecret = "bd50e2b2a14081cd2e851a4b2bec52c5ef9d017f";
+const clientId = "YOUR_CLIENT_ID";
+const clientSecret = "YOUR_CLIENT_SECRET";
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -24,7 +24,7 @@ app.get("/github-login", (req, res) => {
    * scope 参考 `https://docs.github.com/cn/developers/apps/building-oauth-apps/scopes-for-oauth-apps`
    */
   res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=http://localhost:3000/oauth-callback&scope=user:email`
+    `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=http://localhost:4000/oauth-callback&scope=user:email,repo,admin,gist,project,write,read`
   );
 });
 
@@ -87,5 +87,5 @@ app.get("/oauth-callback", async (req, res) => {
   res.redirect(`/index.html?login_type=github_oauth`);
 });
 
-app.listen(3000);
-console.log("http://localhost:3000/");
+app.listen(4000);
+console.log("http://localhost:4000/");
