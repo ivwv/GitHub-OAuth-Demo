@@ -24,7 +24,7 @@ app.get("/github-login", (req, res) => {
    * scope 参考 `https://docs.github.com/cn/developers/apps/building-oauth-apps/scopes-for-oauth-apps`
    */
   res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=http://localhost:4000/oauth-callback&scope=user:email,repo,admin,gist,project,write,read`
+    `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=http://localhost:4000/oauth-callback&scope=user:email`
   );
 });
 
