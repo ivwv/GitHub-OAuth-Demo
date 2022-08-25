@@ -10,6 +10,12 @@
 
   </style>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
+  <style>
+    button {
+      margin: 100px auto;
+      margin-left: 500px;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,9 +23,20 @@
   <h1>
     <a href="/github-login">GitHub OAuth登录</a>
   </h1>
+  <!-- <button id="login">Github登录</button> -->
   <script>
     const img = document.querySelector('#img')
     const username = document.querySelector('#username')
+    const login = document.querySelector('#login')
+
+    // login.addEventListener('click', () => {
+    //   const authWin = window.open('/github-login', '_blank', `width=450,height=600,left=500px,menubar=no,toolbar=no,location=no,status=no,titlebar=no`)
+
+    // })
+
+
+
+
     // 解析url参数
     function parse(url) {
       return [...new URL(url).searchParams].reduce(

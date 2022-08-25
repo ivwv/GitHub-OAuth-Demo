@@ -24,7 +24,8 @@ app.get("/github-login", (req, res) => {
    * scope 参考 `https://docs.github.com/cn/developers/apps/building-oauth-apps/scopes-for-oauth-apps`
    */
   res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=http://localhost:4000/oauth-callback&scope=user:email`
+    `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=http://localhost:4000/oauth-callback&scope=repo,user,gist`
+    // `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=http://localhost:4000/oauth-callback`
   );
 });
 
@@ -52,7 +53,7 @@ app.get("/oauth-callback", async (req, res) => {
   /*
   打印:
   {
-    access_token: 'gho_Q8kytjwhXbyfigdwpdwaLwBOEUvbZKnc36o6HJ',
+    access_token: 'gho_Q8kytjwgdwpdwaLwBOEUvbZKn6o6HJ',
     token_type: 'bearer',
     scope: 'user:email'
   }
@@ -85,6 +86,14 @@ app.get("/oauth-callback", async (req, res) => {
 
   // 验证成功，跳转到首页
   res.redirect(`/index.html?login_type=github_oauth`);
+  // res.send({
+  //   status: 200,
+  //   data: {
+  //     email: emailinfo.data[0].email,
+  //     name: userinfo.data.name,
+  //     avatar: userinfo.data.avatar_url,
+  //   },
+  // });
 });
 
 app.listen(4000);
